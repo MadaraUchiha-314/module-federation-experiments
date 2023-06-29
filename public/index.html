@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Module Federation Experiments</title>
+        <script type="module">
+            const sharedScope = {
+                uuid: {
+                    '1.0.0': {
+                        get: () => () => Promise.resolve({ v4: { mock: 'uuid'} }),
+                    }
+                },
+                react: {
+                    '18.3.0': {
+                        get: () => () => Promise.resolve("mock react"),
+                    }
+                }
+            };
+            const container = await import('/dist/webpack/my-remote-entry.js');
+            
+            await container.init(sharedScope);
+            console.log("SHARED SCOPE: ", sharedScope);
+            
+            const react = (await container.get('./react'))();
+            console.log("EXPOSED MODULE ./react: ", react);
+            
+            const index = (await container.get('./index'))();
+            console.log("EXPOSED MODULE ./index", index);
+
+            globalThis.sharedScope = sharedScope;
+        </script>
+    </head>
+    <body></body>
+</html>

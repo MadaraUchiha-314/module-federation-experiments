@@ -2,7 +2,7 @@ const path = require('path');
 const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist/webpack'),
