@@ -6,6 +6,7 @@ import copy from 'rollup-plugin-copy';
 const outputDir = 'dist/rollup';
 
 export default {
+  input: './src/index.js',
   output: {
     dir: outputDir,
     format: 'es',
@@ -14,8 +15,8 @@ export default {
     nodeResolve(),
     commonjs(),
     federation({
-      name: 'my-random-package',
-      filename: 'my-remote-entry.js',
+      name: '@module-federation/experiments',
+      filename: 'remoteEntry.js',
       exposes: {
         './index': './src/index.js',
         './react': 'react',

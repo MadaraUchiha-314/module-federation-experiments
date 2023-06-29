@@ -1,6 +1,15 @@
 {
-  "name": "my-random-package",
+  "name": "@module-federation/experiments",
   "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/webpack/index.js"
+    },
+    "./remote": {
+      "import": "./dist/webpack/remoteEntry.js"
+    }
+  },
   "scripts": {
     "build": "rm -rf dist/ && rollup --config rollup.config.mjs && webpack",
     "test": "echo \"Error: no test specified\" && exit 1"

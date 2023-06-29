@@ -18,7 +18,7 @@
             globalThis.sharedScope = sharedScope;
             
             const basePath = window.location.href.slice(0, window.location.href.lastIndexOf('/'));
-            const remoteEntryUrl = `${basePath}/my-remote-entry.js`;
+            const remoteEntryUrl = `${basePath}/remoteEntry.js`;
             const container = await import(remoteEntryUrl);
             
             console.log("doing container.init()");

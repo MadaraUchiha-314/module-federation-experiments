@@ -7,6 +7,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist/webpack'),
+    filename: 'index.js',
     library: {
       type: 'module',
     },
@@ -16,8 +17,8 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'my-random-package',
-      filename: 'my-remote-entry.js',
+      name: '@module-federation/experiments',
+      filename: 'remoteEntry.js',
       exposes: {
         './index': './src/index.js',
         './react': 'react',
