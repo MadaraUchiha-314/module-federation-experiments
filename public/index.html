@@ -14,8 +14,8 @@
                     }
                 }
             };
-            const basePatht = window.location.href.slice(0, window.location.href.lastIndexOf('/'));
-            const remoteEntryUrl = `${basePatht}/my-remote-entry.js`;
+            const basePath = window.location.href.slice(0, window.location.href.lastIndexOf('/'));
+            const remoteEntryUrl = `${basePath}/my-remote-entry.js`;
             const container = await import(remoteEntryUrl);
             
             await container.init(sharedScope);
