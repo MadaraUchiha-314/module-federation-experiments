@@ -1,10 +1,13 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import federation from '@originjs/vite-plugin-federation';
+import copy from 'rollup-plugin-copy';
+
+const outputDir = 'dist/rollup';
 
 export default {
   output: {
-    dir: 'dist/rollup',
+    dir: outputDir,
     format: 'es',
   },
   plugins: [
@@ -25,5 +28,13 @@ export default {
         },
       },
     }),
+    copy({
+      targets: [
+        {
+          src: './public/index.html',
+          dest: outputDir,
+        }
+      ]
+    })
   ],
 };

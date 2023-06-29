@@ -1,5 +1,6 @@
 const path = require('path');
 const { ModuleFederationPlugin } = require('webpack').container;
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: 'development',
@@ -34,6 +35,11 @@ module.exports = {
       library: {
         type: 'module',
       },
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: "public/index.html" },
+      ],
     }),
   ],
 };
