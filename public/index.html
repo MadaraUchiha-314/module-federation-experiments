@@ -21,16 +21,18 @@
             const remoteEntryUrl = `${basePath}/my-remote-entry.js`;
             const container = await import(remoteEntryUrl);
             
+            console.log("doing container.init()");
             await container.init(sharedScope);
-            console.log("SHARED SCOPE: ", JSON.stringify(sharedScope, null, 2));
+            console.log("shared scope: ", JSON.stringify(sharedScope, null, 2));
             
+            console.log("doing container.get('./react')");
             const react = (await container.get('./react'))();
-            console.log("EXPOSED MODULE ./react: ", react);
-            console.log("SHARED SCOPE AFTER DOING container.get('./react'): ", JSON.stringify(sharedScope, null, 2));
+            console.log("exposed module ./react: ", react);
+            console.log("shared scope: ", JSON.stringify(sharedScope, null, 2));
             
+            console.log("doing container.get('./index')");
             const index = (await container.get('./index'))();
-            console.log("EXPOSED MODULE ./index", index);
-
+            console.log("exposed module ./index", index);
         </script>
     </head>
     <body></body>
