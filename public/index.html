@@ -14,7 +14,9 @@
                     }
                 }
             };
-            const container = await import('/dist/webpack/my-remote-entry.js');
+            const basePatht = window.location.href.slice(0, window.location.href.lastIndexOf('/'));
+            const remoteEntryUrl = `${basePatht}/my-remote-entry.js`;
+            const container = await import(remoteEntryUrl);
             
             await container.init(sharedScope);
             console.log("SHARED SCOPE: ", sharedScope);
