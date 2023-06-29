@@ -19,10 +19,11 @@
             const container = await import(remoteEntryUrl);
             
             await container.init(sharedScope);
-            console.log("SHARED SCOPE: ", sharedScope);
+            console.log("SHARED SCOPE: ", JSON.stringify(sharedScope, null, 2));
             
             const react = (await container.get('./react'))();
             console.log("EXPOSED MODULE ./react: ", react);
+            console.log("SHARED SCOPE AFTER DOING container.get('./react'): ", JSON.stringify(sharedScope, null, 2));
             
             const index = (await container.get('./index'))();
             console.log("EXPOSED MODULE ./index", index);
