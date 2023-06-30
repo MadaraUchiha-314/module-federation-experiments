@@ -10,6 +10,22 @@
       "import": "./dist/webpack/remoteEntry.js"
     }
   },
+  "release": {
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "master",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ]
+  },
   "scripts": {
     "build": "rm -rf dist/ && rollup --config rollup.config.mjs && webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
