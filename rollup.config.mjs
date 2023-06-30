@@ -15,7 +15,7 @@ export default {
     nodeResolve(),
     commonjs(),
     federation({
-      name: '@module-federation/experiments',
+      name: 'module-federation-experiments',
       filename: 'remoteEntry.js',
       exposes: {
         './index': './src/index.js',

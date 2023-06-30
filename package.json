@@ -1,5 +1,5 @@
 {
-  "name": "@module-federation/experiments",
+  "name": "module-federation-experiments",
   "version": "0.0.1",
   "type": "module",
   "exports": {
