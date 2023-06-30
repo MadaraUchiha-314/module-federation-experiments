@@ -24,7 +24,9 @@ module.exports = {
         './react': 'react',
       },
       shared: {
-        react: {},
+        react: {
+          eager: true,
+        },
         'react-dom': {},
         uuid: {
           import: false,
