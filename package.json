@@ -47,6 +47,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "rollup": "^3.23.0",
     "rollup-plugin-copy": "^3.4.0",
+    "semantic-release": "^21.0.6",
     "webpack": "^5.84.1",
     "webpack-cli": "^5.1.1"
   }
