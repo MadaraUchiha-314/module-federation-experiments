@@ -29,6 +29,13 @@
         "name": "alpha",
         "prerelease": true
       }
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/git"
     ]
   },
   "scripts": {
@@ -44,6 +51,7 @@
     "@originjs/vite-plugin-federation": "^1.2.3",
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
+    "@semantic-release/git": "^10.0.1",
     "copy-webpack-plugin": "^11.0.0",
     "rollup": "^3.23.0",
     "rollup-plugin-copy": "^3.4.0",
