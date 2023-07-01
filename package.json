@@ -44,14 +44,9 @@
     "@originjs/vite-plugin-federation": "^1.2.3",
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^10.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^10.0.4",
     "copy-webpack-plugin": "^11.0.0",
     "rollup": "^3.23.0",
     "rollup-plugin-copy": "^3.4.0",
-    "semantic-release": "^21.0.6",
     "webpack": "^5.84.1",
     "webpack-cli": "^5.1.1"
   }
