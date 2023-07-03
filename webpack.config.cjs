@@ -22,15 +22,18 @@ module.exports = {
       exposes: {
         './index': './src/index.js',
         './react': 'react',
+        './expose-shared-eager': './src/expose-shared-eager.js'
       },
       shared: {
-        react: {
-          eager: true,
-        },
+        react: {},
         'react-dom': {},
         uuid: {
           import: false,
         },
+        'exposed-shared-eager': {
+          import: './src/expose-shared-eager.js',
+          eager: true
+        }
       },
       /**
        * Additional stuff for webpack.
