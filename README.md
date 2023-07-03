@@ -3,9 +3,9 @@ Experiments with module-federation
 
 ### Lastest deployed version (`main` branch)
 - webpack:
-  - https://madarauchiha-314.github.io/module-federation-experiments/main/webpack/index.html 
+  - https://module-federation-experiments.vercel.app/webpack/index.html
 - rollup:
-  -  https://madarauchiha-314.github.io/module-federation-experiments/main/rollup/index.html
+  - https://module-federation-experiments.vercel.app/rollup/index.html
 
 ### Running locally
 ```sh

@@ -1,10 +1,10 @@
-name: Build and deploy to gh-pages
+name: CI Build and release
 on:
   push:
     branches:
       - main
 jobs:
-  deploy:
+  build-and-release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -17,12 +17,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm run build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          destination_dir: ${{ github.ref_name }}
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
