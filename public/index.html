@@ -3,16 +3,15 @@
         <title>Module Federation Experiments</title>
         <script type="module">
             const sharedScope = {
+                /**
+                 * In the base-example, we have declared uuid as import: false
+                 * So we provide a fallback by directly registering it with the shared scope object.
+                 */
                 uuid: {
                     '1.0.0': {
                         get: () => () => Promise.resolve({ v4: { mock: 'uuid'} }),
                     }
                 },
-                react: {
-                    '18.3.0': {
-                        get: () => () => Promise.resolve("mock react"),
-                    }
-                }
             };
             
             globalThis.sharedScope = sharedScope;
