@@ -22,12 +22,14 @@ module.exports = {
       exposes: {
         './index': './src/index.js',
         './react': 'react',
+        './react-dom': 'react-dom',
       },
       shared: {
         react: {
-          eager: true,
         },
-        'react-dom': {},
+        'react-dom': {
+          eager: true
+        },
         uuid: {
           import: false,
         },
