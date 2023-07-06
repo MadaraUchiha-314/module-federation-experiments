@@ -27,7 +27,9 @@ module.exports = {
         react: {
           eager: true,
         },
-        'react-dom': {},
+        'react-dom': {
+          shareScope: 'custom1'
+        },
         uuid: {
           import: false,
         },
