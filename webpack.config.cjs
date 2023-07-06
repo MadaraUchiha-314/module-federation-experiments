@@ -26,7 +26,6 @@ module.exports = {
       shared: {
         react: {
           eager: true,
-          shareScope: 'custom0'
         },
         'react-dom': {
           shareScope: 'custom1'
