@@ -2,11 +2,15 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import federation from '@originjs/vite-plugin-federation';
 import copy from 'rollup-plugin-copy';
+import pkgJson from './package.json' assert { type: "json" };
 
 const outputDir = 'dist/rollup';
 
 export default {
-  input: './src/index.js',
+  input: {
+    'index': './src/index.js',
+    'something': './src/something.js'
+  },
   output: {
     dir: outputDir,
     format: 'es',
@@ -20,6 +24,7 @@ export default {
       exposes: {
         './index': './src/index.js',
         './react': 'react',
+        './something': './src/something.js'
       },
       shared: {
         react: {
@@ -29,6 +34,13 @@ export default {
         uuid: {
           import: false,
         },
+        // NOTE: rollup's federation is not allowing to do this. 
+        // I think its beacuse of the order in which the federation plugin does things.
+        // https://github.com/originjs/vite-plugin-federation/blob/main/packages/lib/src/index.ts#L56-L58
+        // 'module-federation-experiments/something': {
+        //   import: './src/something.js',
+        //   version: pkgJson.version,
+        // },
       },
     }),
     copy({
