@@ -1,6 +1,7 @@
 const path = require('path');
 const { ModuleFederationPlugin } = require('webpack').container;
 const CopyPlugin = require("copy-webpack-plugin");
+const pkgJson = require('./package.json');
 
 module.exports = {
   mode: 'development',
@@ -37,6 +38,7 @@ module.exports = {
         },
         'module-federation-experiments/something': {
           import: './src/something.js',
+          version: pkgJson.version,
         },
       },
       /**
