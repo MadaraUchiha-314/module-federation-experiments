@@ -8,6 +8,9 @@
     },
     "./remote": {
       "import": "./dist/webpack/remoteEntry.js"
+    },
+    "./something": {
+      "import": "./dist/webpack/something.js"
     }
   },
   "engines": {

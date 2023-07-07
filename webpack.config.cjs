@@ -4,10 +4,13 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    'index': path.resolve(__dirname, 'src/index.js'),
+    'something': path.resolve(__dirname, 'src/something.js')
+  },
   output: {
     path: path.resolve(__dirname, 'dist/webpack'),
-    filename: 'index.js',
+    filename: '[name].js',
     library: {
       type: 'module',
     },
@@ -22,6 +25,7 @@ module.exports = {
       exposes: {
         './index': './src/index.js',
         './react': 'react',
+        './something': './src/something.js'
       },
       shared: {
         react: {
@@ -30,6 +34,9 @@ module.exports = {
         'react-dom': {},
         uuid: {
           import: false,
+        },
+        'module-federation-experiments/something': {
+          import: './src/something.js',
         },
       },
       /**
