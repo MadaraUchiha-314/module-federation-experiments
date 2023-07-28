@@ -24,14 +24,9 @@
             await container.init(sharedScope);
             console.log("shared scope: ", JSON.stringify(sharedScope, null, 2));
             
-            console.log("doing container.get('./react')");
-            const react = (await container.get('./react'))();
-            console.log("exposed module ./react: ", react);
-            console.log("shared scope: ", JSON.stringify(sharedScope, null, 2));
-            
-            console.log("doing container.get('./index')");
-            const index = (await container.get('./index'))();
-            console.log("exposed module ./index", index);
+            console.log("doing container.get('./expose-shared-eager')");
+            const exposedSharedEager = (await container.get('./expose-shared-eager'))();
+            console.log("exposed module ./expose-shared-eager", exposedSharedEager);
         </script>
     </head>
     <body>
