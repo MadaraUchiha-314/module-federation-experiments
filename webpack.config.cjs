@@ -36,7 +36,8 @@ module.exports = {
        * Additional stuff for webpack.
        */
       library: {
-        type: 'module',
+        type: 'var',
+        name: 'module_federation_experiments'
       },
     }),
     new CopyPlugin({
