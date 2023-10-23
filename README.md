@@ -9,7 +9,7 @@ Experiments with module-federation
 
 ### Running locally
 ```sh
-http-server ./dist 
+http-server ./dist
 ```
 - For webpack build:
   - Navigate to http://localhost:8080/webpack/index.html
