@@ -3,6 +3,15 @@
         <title>Module Federation Experiments</title>
         <script type="module">
             const sharedScope = {
+                /**
+                 * In the base-example, we have declared uuid as import: false
+                 * So we provide a fallback by directly registering it with the shared scope object.
+                 */
+                 uuid: {
+                    '1.0.0': {
+                        get: () => () => Promise.resolve({ v4: { mock: 'uuid'} }),
+                    }
+                },
             };
             
             globalThis.sharedScope = sharedScope;
@@ -10,6 +19,11 @@
             const basePath = window.location.href.slice(0, window.location.href.lastIndexOf('/'));
             const remoteEntryUrl = `${basePath}/remoteEntry.js`;
             const container = await import(remoteEntryUrl);
+
+            console.log("doing container.get('./react')");
+            const react = (await container.get('./react'))();
+            console.log("exposed module ./react: ", react);
+            console.log("shared scope: ", JSON.stringify(sharedScope, null, 2));
             
             console.log("doing container.init()");
             await container.init(sharedScope);

@@ -37,8 +37,16 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         './index': './src/index.js',
+        './react': 'react',
       },
       shared: {
+        react: {
+          eager: true,
+        },
+        'react-dom': {},
+        uuid: {
+          import: false,
+        },
       },
       /**
        * Additional stuff for webpack.
