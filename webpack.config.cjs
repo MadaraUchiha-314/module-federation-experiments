@@ -15,19 +15,6 @@ module.exports = {
   experiments: {
     outputModule: true,
   },
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: 'all',
-  //     cacheGroups: {
-  //       customVendor: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         priority: 0,
-  //         reuseExistingChunk: true,
-  //         enforce: true,
-  //       },
-  //     },
-  //   },
-  // },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1,
