@@ -7,7 +7,6 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist/webpack'),
-    filename: 'index.js',
     library: {
       type: 'module',
     },
@@ -17,11 +16,13 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
+      chunks: 'all',
       cacheGroups: {
         customVendor: {
           test: /[\\/]node_modules[\\/]/,
           priority: 0,
           reuseExistingChunk: true,
+          enforce: true,
         },
       },
     },
