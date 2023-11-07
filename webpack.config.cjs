@@ -15,22 +15,25 @@ module.exports = {
   experiments: {
     outputModule: true,
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        customVendor: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: 0,
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: 'module-federation-experiments',
       filename: 'remoteEntry.js',
       exposes: {
         './index': './src/index.js',
-        './react': 'react',
       },
       shared: {
-        react: {
-          eager: true,
-        },
-        'react-dom': {},
-        uuid: {
-          import: false,
-        },
       },
       /**
        * Additional stuff for webpack.
