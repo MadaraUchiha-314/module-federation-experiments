@@ -1,13 +1,13 @@
 const path = require('path');
 const { ModuleFederationPlugin } = require('webpack').container;
 const CopyPlugin = require("copy-webpack-plugin");
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist/webpack'),
-    filename: 'index.js',
     library: {
       type: 'module',
     },
@@ -16,6 +16,9 @@ module.exports = {
     outputModule: true,
   },
   plugins: [
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1,
+    }),
     new ModuleFederationPlugin({
       name: 'module-federation-experiments',
       filename: 'remoteEntry.js',
@@ -31,6 +34,7 @@ module.exports = {
         uuid: {
           import: false,
         },
+        redux: {},
       },
       /**
        * Additional stuff for webpack.
