@@ -34,6 +34,7 @@ module.exports = {
         uuid: {
           import: false,
         },
+        redux: {},
       },
       /**
        * Additional stuff for webpack.
